@@ -1,68 +1,79 @@
 package creational_patterns;
 
-interface Vehicle{
+// Vehicle interface
+interface Vehicle {
     String getType();
 }
 
+// Car class implementing Vehicle interface
 class Car implements Vehicle {
     @Override
-    String getType(){
+    public String getType() {
         return "Car";
     }
 }
 
+// Bike class implementing Vehicle interface
 class Bike implements Vehicle {
     @Override
-    String getType(){
+    public String getType() {
         return "Bike";
     }
 }
 
+// Truck class implementing Vehicle interface
 class Truck implements Vehicle {
     @Override
-    String getType(){
+    public String getType() {
         return "Truck";
     }
 }
 
+// Abstract VehicleFactory class
 abstract class VehicleFactory {
-    abstract Vehicle createFactory();
+    public abstract Vehicle createVehicle();
 }
 
-class CarFactory implements VehicleFactory {
+// CarFactory class extending VehicleFactory
+class CarFactory extends VehicleFactory {
     @Override
-    Vehicle createFactory(){
+    public Vehicle createVehicle() {
         return new Car();
     }
 }
 
-class BikeFactory implements VehicleFactory {
+// BikeFactory class extending VehicleFactory
+class BikeFactory extends VehicleFactory {
     @Override
-    Vehicle createFactory(){
+    public Vehicle createVehicle() {
         return new Bike();
     }
 }
 
-class TruckFactory(){
+// TruckFactory class extending VehicleFactory
+class TruckFactory extends VehicleFactory {
     @Override
-    Vehicle createFactory(){
+    public Vehicle createVehicle() {
         return new Truck();
     }
 }
 
-public class FactoryClassMethod{
-    public static void main(String[] args){
+// Main class to demonstrate the Factory Method pattern
+public class FactoryMethodExample {
+    public static void main(String[] args) {
+        // Car factory
         VehicleFactory carFactory = new CarFactory();
         Vehicle car = carFactory.createVehicle();
-        System.out.println("Vehicle type: " + car.getType()); 
+        System.out.println("Vehicle type: " + car.getType()); // Output: Vehicle type: Car
 
+        // Bike factory
         VehicleFactory bikeFactory = new BikeFactory();
         Vehicle bike = bikeFactory.createVehicle();
-        System.out.println("Vehicle type: " + bike.getType()); 
+        System.out.println("Vehicle type: " + bike.getType()); // Output: Vehicle type: Bike
 
         // Truck factory
         VehicleFactory truckFactory = new TruckFactory();
         Vehicle truck = truckFactory.createVehicle();
-        System.out.println("Vehicle type: " + truck.getType()); 
+        System.out.println("Vehicle type: " + truck.getType()); // Output: Vehicle type: Truck
     }
 }
