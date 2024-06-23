@@ -1,4 +1,4 @@
-package creational_patterns;
+package creational_patterns; // gives access to all other files in the same package
 
 // Vehicle interface
 interface Vehicle {
