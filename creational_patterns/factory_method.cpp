@@ -1,3 +1,5 @@
+package creational_patterns;
+
 interface Vehicle{
     String getType();
 }
