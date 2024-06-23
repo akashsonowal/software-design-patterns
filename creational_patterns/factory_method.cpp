@@ -47,3 +47,20 @@ class TruckFactory(){
         return new Truck();
     }
 }
+
+public class FactoryClassMethod{
+    public static void main(String[] args){
+        VehicleFactory carFactory = new CarFactory();
+        Vehicle car = carFactory.createVehicle();
+        System.out.println("Vehicle type: " + car.getType()); 
+
+        VehicleFactory bikeFactory = new BikeFactory();
+        Vehicle bike = bikeFactory.createVehicle();
+        System.out.println("Vehicle type: " + bike.getType()); 
+
+        // Truck factory
+        VehicleFactory truckFactory = new TruckFactory();
+        Vehicle truck = truckFactory.createVehicle();
+        System.out.println("Vehicle type: " + truck.getType()); 
+    }
+}
